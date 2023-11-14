@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+/***** reset styles *****/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/***** custom variables  *****/
+:root {
+  --color-primary-Red: hsl(0, 78%, 62%);
+  --color-primary-Cyan: hsl(180, 62%, 55%);
+  --color-primary-Orange: hsl(34, 97%, 64%);
+  --color-primary-Blue: hsl(212, 86%, 64%);
+
+  --color-neutral-Very-Dark-Blue: hsl(234, 12%, 34%);
+  --color-neutral-Grayish-Blue: hsl(229, 6%, 66%);
+  --color-neutral-Very-Light-Gray: hsl(0, 0%, 98%);
+
+  --card-width: calc(375px - 3em);
+}
+
+/***** basic styles  *****/
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--color-neutral-Grayish-Blue);
+
+  /* center the main element on the screen */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-neutral-Very-Light-Gray);
+}
+
+h1,
+h3 {
+  color: var(--color-neutral-Very-Dark-Blue);
+}
+
+main {
+  margin: 4em 1.5em;
+}
+
+/***** hero section styles  *****/
+.hero {
+  text-align: center;
+  margin-inline: 1em;
+  margin-bottom: 4em;
+}
+
+.hero__heading {
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+
+.hero__heading span {
+  color: var(--color-neutral-Grayish-Blue);
+  font-weight: 400;
+  display: block;
+  font-size: 1.45rem;
+}
+
+.hero__text {
+  max-width: 55ch;
+  margin: auto;
+}
+
+/***** cards section styles  *****/
+
+.cards {
+  width: max-content;
+  margin: auto;
+}
+.cards__card {
+  background-color: #fff;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 0.5em;
+  border-top: 3.5px solid;
+  padding: 2em;
+  margin-bottom: 2em;
+  width: var(--card-width);
+}
+
+.cards__card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2em;
+}
+
+.cards__card p {
+  font-size: 14px;
+  margin-bottom: 2.5em;
+}
+
+.cards__card img {
+  display: block;
+  margin-left: auto;
+}
+
+.cards__card--1 {
+  border-color: var(--color-primary-Cyan);
+}
+
+.cards__card--2 {
+  border-color: var(--color-primary-Red);
+}
+
+.cards__card--3 {
+  border-color: var(--color-primary-Orange);
+}
+
+.cards__card--4 {
+  border-color: var(--color-primary-Blue);
+}
+
+/***** responsive styles for medium screens *****/
+
+@media only screen and (min-width: 850px) {
+  .cards {
+    /* increase card width slight;y for larger screens */
+    --card-width: 375px;
+
+    display: grid;
+
+    /* each grid item will have a width equal to the cards */
+    grid-template-columns: var(--card-width) var(--card-width);
+    justify-content: center;
+    gap: 2em;
+  }
+  .cards__card {
+    margin-bottom: 0;
+  }
+}
+
+/***** responsive styles for larger screens *****/
+
+@media only screen and (min-width: 1270px) {
+  /* change heading and text sizes */
+  .hero__heading {
+    margin-bottom: 0.5em;
+    font-size: 2rem;
+  }
+
+  .hero__heading span {
+    font-size: 1.925rem;
+  }
+
+  /* align cards using grid as per design */
+  .cards__card--1 {
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+
+  .cards__card--4 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+
+  .cards__card--3 {
+    grid-column: 2 / 3;
+  }
+}
