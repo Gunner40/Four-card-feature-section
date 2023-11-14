@@ -74,7 +74,6 @@ main {
 /***** cards section styles  *****/
 
 .cards {
-  width: max-content;
   margin: auto;
 }
 .cards__card {
@@ -84,7 +83,8 @@ main {
   border-top: 3.5px solid;
   padding: 2em;
   margin-bottom: 2em;
-  width: var(--card-width);
+  max-width: var(--card-width);
+  margin-inline: auto;
 }
 
 .cards__card h3 {
